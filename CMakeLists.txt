@@ -10,11 +10,11 @@ pkg_check_modules(BLUEZ REQUIRED bluez)
 
 include_directories(
     ${BLUEZ_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/bluetooth/
+    ${CMAKE_SOURCE_DIR}/include/
     ${CMAKE_SOURCE_DIR}
 )
 file(GLOB_RECURSE SRC_FILES
-    ${CMAKE_SOURCE_DIR}/bluetooth/*.c
+    ${CMAKE_SOURCE_DIR}/src/*.c
     ${CMAKE_SOURCE_DIR}/main.c
 )
 
