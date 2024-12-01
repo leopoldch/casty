@@ -17,5 +17,4 @@ cd build
 cmake ..
 make
 cd ..
-cp . build/castyd
-rm -rf build
+cp build/castyd .
