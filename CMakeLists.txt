@@ -10,18 +10,15 @@ pkg_check_modules(BLUEZ REQUIRED bluez)
 
 include_directories(
     ${BLUEZ_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/bluetooth 
+    ${CMAKE_SOURCE_DIR}/bluetooth/
+    ${CMAKE_SOURCE_DIR}
 )
-
 file(GLOB_RECURSE SRC_FILES
     ${CMAKE_SOURCE_DIR}/bluetooth/*.c
+    ${CMAKE_SOURCE_DIR}/main.c
 )
 
-# Définir l'exécutable principal
 add_executable(main ${SRC_FILES})
 
-# Lier les bibliothèques
 target_link_libraries(main PRIVATE ${BLUEZ_LIBRARIES})
-
-# Ajouter les options de compilation
 target_compile_options(main PRIVATE ${BLUEZ_CFLAGS_OTHER})
