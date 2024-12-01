@@ -10,7 +10,7 @@ void set_bluetooth_discoverable() {
         exit(EXIT_FAILURE);
     }
 
-    // Configuration de la classe d'appareil (facultatif)
+    // 0x200408 = audio class
     if (hci_write_class_of_dev(sock, 0x200408, 0) < 0) {
         perror("Erreur lors de la configuration de la classe d'appareil");
         close(sock);

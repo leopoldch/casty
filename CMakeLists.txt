@@ -18,7 +18,7 @@ file(GLOB_RECURSE SRC_FILES
     ${CMAKE_SOURCE_DIR}/main.c
 )
 
-add_executable(main ${SRC_FILES})
+add_executable(castyd ${SRC_FILES})
 
 target_link_libraries(main PRIVATE ${BLUEZ_LIBRARIES})
 target_compile_options(main PRIVATE ${BLUEZ_CFLAGS_OTHER})

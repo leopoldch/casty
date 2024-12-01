@@ -9,8 +9,8 @@
 #include <bluetooth/hci_lib.h>
 #include <errno.h>
 
-void start_bluetooth_server() ;
+void start_bluetooth_server();
 
-void enable_pairing() ;
+void enable_pairing();
 
 void set_bluetooth_discoverable();
