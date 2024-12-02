@@ -36,16 +36,24 @@ void enable_pairing() {
         exit(EXIT_FAILURE);
     }
 
-    uint8_t enable_auth = 0x01; // Enable authentication
-    if (hci_send_cmd(sock, OGF_HOST_CTL, OCF_WRITE_AUTH_ENABLE, 1, &enable_auth) < 0) {
-        perror("Error enabling pairing");
+    uint8_t disable_auth = 0x00; // Disable authentication
+    if (hci_send_cmd(sock, OGF_HOST_CTL, OCF_WRITE_AUTH_ENABLE, 1, &disable_auth) < 0) {
+        perror("Error disabling authentication");
         close(sock);
         exit(EXIT_FAILURE);
     }
 
-    printf("Pairing mode enabled.\n");
+    uint8_t enable_auth = 0x01; // Enable authentication
+    if (hci_send_cmd(sock, OGF_HOST_CTL, OCF_WRITE_AUTH_ENABLE, 1, &enable_auth) < 0) {
+        perror("Error enabling pairing mode");
+        close(sock);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Pairing mode enabled successfully.\n");
     close(sock);
 }
+
 
 void start_bluetooth_server() {
     struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
